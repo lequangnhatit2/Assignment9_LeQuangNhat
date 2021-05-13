@@ -36,8 +36,16 @@ Ok = driver.find_elements_by_link_text("Submit")
 if len(Ok) > 0 :
     Ok[0].click()
 
-time.sleep(2)
-driver.close()
+alertText = driver.find_element_by_xpath('/html/body/div/div').get_attribute('innerHTML')
+
+try:
+	assert "The form was successfully submitted!" in alertText
+	print('OK')
+	time.sleep(2)
+	driver.close()
+
+except Exception as e:
+	raise e
 
 
 
