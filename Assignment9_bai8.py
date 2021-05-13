@@ -28,7 +28,7 @@ time.sleep(2)
 
 title1 = driver.find_elements_by_id("flash")
 print(title1)
-
+assert "The Internet" in driver.title
 print(driver.title)
 
 time.sleep(2)
